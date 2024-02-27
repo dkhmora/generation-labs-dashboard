@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import { IconButton } from "@mui/material";
+import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
 
 type ToDoHeaderProps = {
   taskDoneCount: number;
@@ -18,10 +20,14 @@ export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
         <h5 className="font-medium text-lg">{title}</h5>
       </div>
 
-      <div>
+      <div className="flex flex-row justify-center items-center text-center space-x-2">
         <p>
           {taskDoneCount}/{numberOfTasks} tasks
         </p>
+
+        <IconButton size="small" edge="end" aria-label="expand">
+          <KeyboardArrowDownIcon />
+        </IconButton>
       </div>
     </div>
   );
