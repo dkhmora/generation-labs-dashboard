@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+# Generation Labs Dashboard Front End Take-Home Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This repository contains my submission for the front end engineering take-home task assigned by Generation Labs. The goal of this task is to implement a front-end page based on a provided Figma design using either Vue.js or React framework.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Task Requirements
 
-## Expanding the ESLint configuration
+- **Framework:** Implement the front-end page using Vue.js or React.
+- **Figma Design:** Follow the design provided in the Figma link. [View Design](https://www.figma.com/file/sLuzPUtgThjxWxdnnIsJlg/dashboard-test?type=design&node-id=2%3A421&mode=design&t=thrF9u1mfm4mOiSQ-1)
+- **Submission:** A screenshot of the implemented page and a walk-in intro video showcasing the page on localhost.
+- **Optional:** Make the dashboard page mobile-friendly.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Implementation
 
-- Configure the top-level `parserOptions` property like this:
+### Technologies Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- **Framework:** React.js
+- **Styling** TailwindCSS - A utility-first CSS framework for rapidly building custom designs.
+- **Build Tool:** Vite - A fast and modern build tool for JavaScript projects.
+
+### How to Run This Project
+
+1. **Clone the repository:**
+
+```bash
+git clone <REPOSITORY_URL>
+cd <REPOSITORY_NAME>
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Install Dependencies**
+
+```bash
+npm install
+```
+
+3. **Run the Project**
+
+```bash
+npm run dev
+```
+
+The application will be available at http://localhost:3000 (or whichever port Vite specifies).
+
+## About Generation Labs
+
+Learn more about Generation Labs and their mission from this [Fortune article](https://fortune.com/well/2024/01/30/tech-measure-biological-age-live-longer-waitlist/).
+
+## Contact
+
+For any queries regarding this project, feel free to contact me:
+
+- Name: Daryl Kiel Mora
+- Email: [daryl@dkhmora.com]
+- LinkedIn: [LinkedIn Profile URL](https://www.linkedin.com/in/dkhmora/)
