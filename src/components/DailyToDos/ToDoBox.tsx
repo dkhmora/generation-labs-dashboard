@@ -1,23 +1,29 @@
 import React from "react";
 import ToDoHeader from "./ToDoHeader";
-import MedicationIcon from "../../assets/medication.svg";
-import TasksList from "./TasksList";
+import TasksList, { Task } from "./TasksList";
 
-export default function ToDoBox() {
+type ToDoBoxProps = {
+  title: string;
+  icon: JSX.Element;
+  tasks: Task[];
+};
+
+export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
+  const { title, icon, tasks } = ToDoBoxProps;
+
+  const taskDoneCount = tasks.filter((task) => task.isDone).length;
+  const numberOfTasks = tasks.length;
+
   return (
     <div className="rounded-xl bg-[#F7F7F7] p-4">
       <ToDoHeader
-        title="Rejuvenation Candidate"
-        icon={
-          <div className="rounded-3xl bg-[#F3C82E] p-2.5">
-            <img src={MedicationIcon} className="h-6" />
-          </div>
-        }
-        taskDoneCount={2}
-        numberOfTasks={4}
+        title={title}
+        icon={icon}
+        taskDoneCount={taskDoneCount}
+        numberOfTasks={numberOfTasks}
       />
 
-      <TasksList tasks={["task 1", "task 2"]} />
+      <TasksList tasks={tasks} />
     </div>
   );
 }

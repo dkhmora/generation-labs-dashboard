@@ -1,8 +1,13 @@
 import React from "react";
 import Task from "./Task";
 
+export type Task = {
+  text: string;
+  isDone: boolean;
+};
+
 type TaskListProps = {
-  tasks: string[];
+  tasks: Task[];
 };
 
 export default function TasksList(TaskListProps: TaskListProps) {
@@ -11,7 +16,7 @@ export default function TasksList(TaskListProps: TaskListProps) {
   return (
     <div className="w-full space-y-2">
       {tasks.map((task, index) => (
-        <Task key={index} text={task} isDone={false} />
+        <Task key={index} {...task} />
       ))}
     </div>
   );
