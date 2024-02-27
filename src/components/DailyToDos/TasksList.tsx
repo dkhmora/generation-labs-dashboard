@@ -1,22 +1,18 @@
 import React from "react";
 import Task from "./Task";
 
-export type Task = {
-  text: string;
+type TaskListProps = {
+  tasks: string[];
   isDone: boolean;
 };
 
-type TaskListProps = {
-  tasks: Task[];
-};
-
 export default function TasksList(TaskListProps: TaskListProps) {
-  const { tasks } = TaskListProps;
+  const { tasks, isDone } = TaskListProps;
 
   return (
     <div className="w-full space-y-2">
       {tasks.map((task, index) => (
-        <Task key={index} {...task} />
+        <Task key={index} text={task} isDone={isDone} />
       ))}
     </div>
   );

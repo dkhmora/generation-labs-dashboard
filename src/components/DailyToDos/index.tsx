@@ -3,6 +3,7 @@ import ToDoBox from "./ToDoBox";
 import MedicationIcon from "../../assets/medication.svg";
 import FootprintIcon from "../../assets/footprint.svg";
 import SpaIcon from "../../assets/spa.svg";
+import FinishedTodos from "./FinishedTodos";
 
 const MOCK_TODO_DATA = [
   {
@@ -13,16 +14,12 @@ const MOCK_TODO_DATA = [
       </div>
     ),
     tasks: [
-      { text: "No alcoholic drinks today.", isDone: false },
-      { text: "Replace a processed meat with leaner proteins", isDone: false },
-      {
-        text: "Use cold-pressed olive oil or avocado oil instead of refined oils.",
-        isDone: true,
-      },
-      {
-        text: "Include non-starchy vegetables with every meal.",
-        isDone: true,
-      },
+      "No alcoholic drinks today.",
+      "Replace a processed meat with leaner proteins",
+    ],
+    tasksDone: [
+      "Use cold-pressed olive oil or avocado oil instead of refined oils.",
+      "Include non-starchy vegetables with every meal.",
     ],
   },
   {
@@ -32,7 +29,8 @@ const MOCK_TODO_DATA = [
         <img src={FootprintIcon} className="h-6" />
       </div>
     ),
-    tasks: [{ text: "Aim 10,000 steps a day.", isDone: false }],
+    tasks: ["Aim 10,000 steps a day."],
+    tasksDone: [],
   },
   {
     title: "Therapy",
@@ -41,11 +39,17 @@ const MOCK_TODO_DATA = [
         <img src={SpaIcon} className="h-6" />
       </div>
     ),
-    tasks: [{ text: "Go to therapy today.", isDone: false }],
+    tasks: ["Go to therapy today."],
+    tasksDone: [],
   },
 ];
 
 export default function index() {
+  const allTasksDone = MOCK_TODO_DATA.reduce(
+    (acc, curr) => acc.concat(curr.tasksDone),
+    [] as string[]
+  );
+
   return (
     <section className="w-full h-52">
       <div className="space-y-4">
@@ -55,6 +59,8 @@ export default function index() {
           {MOCK_TODO_DATA.map((todo, index) => (
             <ToDoBox key={index} {...todo} />
           ))}
+
+          <FinishedTodos tasks={allTasksDone} />
         </div>
       </div>
     </section>

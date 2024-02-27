@@ -1,29 +1,27 @@
 import React from "react";
 import ToDoHeader from "./ToDoHeader";
-import TasksList, { Task } from "./TasksList";
+import TasksList from "./TasksList";
 
 type ToDoBoxProps = {
   title: string;
   icon: JSX.Element;
-  tasks: Task[];
+  tasks: string[];
+  tasksDone: string[];
 };
 
 export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
-  const { title, icon, tasks } = ToDoBoxProps;
-
-  const taskDoneCount = tasks.filter((task) => task.isDone).length;
-  const numberOfTasks = tasks.length;
+  const { title, icon, tasks, tasksDone } = ToDoBoxProps;
 
   return (
     <div className="rounded-xl bg-[#F7F7F7] p-4">
       <ToDoHeader
         title={title}
         icon={icon}
-        taskDoneCount={taskDoneCount}
-        numberOfTasks={numberOfTasks}
+        taskDoneCount={tasksDone.length}
+        numberOfTasks={tasks.length}
       />
 
-      <TasksList tasks={tasks} />
+      <TasksList tasks={tasks} isDone={false} />
     </div>
   );
 }
