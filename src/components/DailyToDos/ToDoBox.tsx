@@ -1,6 +1,7 @@
 import React from "react";
 import ToDoHeader from "./ToDoHeader";
 import MedicationIcon from "../../assets/medication.svg";
+import TasksList from "./TasksList";
 
 export default function ToDoBox() {
   return (
@@ -15,7 +16,8 @@ export default function ToDoBox() {
         taskDoneCount={2}
         numberOfTasks={4}
       />
-      <h1>Tasks</h1>
+
+      <TasksList tasks={["task 1", "task 2"]} />
     </div>
   );
 }

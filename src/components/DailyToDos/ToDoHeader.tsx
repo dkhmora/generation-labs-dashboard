@@ -13,7 +13,7 @@ export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
   const { taskDoneCount, numberOfTasks, title, icon } = ToDoHeaderProps;
 
   return (
-    <div className="flex w-full justify-between items-center">
+    <div className="flex w-full justify-between items-center pb-4">
       <div className="flex flex-row justify-center items-center text-center space-x-4">
         {icon}
 
