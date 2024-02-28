@@ -3,16 +3,36 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #2f2f2f;
+  background-color: #ffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.viewport {
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.viewport.open {
+  max-height: 120px;
+  opacity: 1;
+}
+
+.content {
+  transform-origin: top;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.content.open {
+  transform: scaleY(1);
+  opacity: 1;
 }
