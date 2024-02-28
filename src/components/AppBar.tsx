@@ -1,19 +1,12 @@
 import logo from "../assets/logo.svg";
 import MobileNavigationDrawer from "./MobileNavigationDrawer";
 import ProfileCircleImage from "../assets/profile_circle.svg";
-import { Button, List, ListItemButton, ListItemText } from "@mui/material";
-import { useState } from "react";
+import { Button } from "@mui/material";
 import NavbarItemsList from "./NavbarItemsList";
 
 const MAIN_NAVIGATION_ITEMS = ["Dashboard", "Report", "Tele-health", "To-dos"];
 
 export default function AppBar() {
-  const [selectedItem, setSelectedItem] = useState("Dashboard"); // New state for tracking selected item
-
-  const handleListItemClick = (item: string) => {
-    setSelectedItem(item);
-  };
-
   return (
     <header>
       <div className="flex items-center w-full px-6 bg-white shadow-md justify-between lg:py-0 lg:shadow-none lg:px-32">
