@@ -22,7 +22,7 @@ export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
         title={title}
         icon={icon}
         taskDoneCount={tasksDone.length}
-        numberOfTasks={tasks.length}
+        numberOfTasks={tasksDone.length + tasks.length}
         onDropdownToggle={toggleDropdown}
       />
 
