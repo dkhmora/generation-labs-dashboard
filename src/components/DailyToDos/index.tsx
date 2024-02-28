@@ -20,7 +20,7 @@ const MOCK_TODO_DATA = [
     ],
   },
   {
-    title: "Rejuvenation Candidate",
+    title: "Fitness",
     icon: <CircleImageIcon icon={FootprintIcon} className="bg-[#8083CC]" />,
     tasks: ["Aim 10,000 steps a day."],
     tasksDone: [],
@@ -68,7 +68,11 @@ export default function DailyToDos() {
 
         <div className="space-y-4">
           {todos.map((todo, index) => (
-            <ToDoBox key={index} {...todo} onClickCheckbox={onClickCheckbox} />
+            <ToDoBox
+              key={todo.title}
+              {...todo}
+              onClickCheckbox={onClickCheckbox}
+            />
           ))}
 
           <FinishedTodos tasks={allTasksDone} />
