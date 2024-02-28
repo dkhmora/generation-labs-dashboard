@@ -4,15 +4,12 @@ import MedicationIcon from "../../assets/medication.svg";
 import FootprintIcon from "../../assets/footprint.svg";
 import SpaIcon from "../../assets/spa.svg";
 import FinishedTodos from "./FinishedTodos";
+import CircleImageIcon from "../CircleImageIcon";
 
 const MOCK_TODO_DATA = [
   {
     title: "Rejuvenation Candidate",
-    icon: (
-      <div className="rounded-3xl bg-[#F3C82E] p-2.5">
-        <img src={MedicationIcon} className="h-6" />
-      </div>
-    ),
+    icon: <CircleImageIcon icon={MedicationIcon} color="#F3C82E" />,
     tasks: [
       "No alcoholic drinks today.",
       "Replace a processed meat with leaner proteins",
@@ -24,21 +21,13 @@ const MOCK_TODO_DATA = [
   },
   {
     title: "Rejuvenation Candidate",
-    icon: (
-      <div className="rounded-3xl bg-[#8083CC] p-2.5">
-        <img src={FootprintIcon} className="h-6" />
-      </div>
-    ),
+    icon: <CircleImageIcon icon={FootprintIcon} color="#8083CC" />,
     tasks: ["Aim 10,000 steps a day."],
     tasksDone: [],
   },
   {
     title: "Therapy",
-    icon: (
-      <div className="rounded-3xl bg-[#39CDC4] p-2.5">
-        <img src={SpaIcon} className="h-6" />
-      </div>
-    ),
+    icon: <CircleImageIcon icon={SpaIcon} color="#39CDC4" />,
     tasks: ["Go to therapy today."],
     tasksDone: [],
   },

@@ -1,5 +1,39 @@
 import React from "react";
 import BoxContainer from "../BoxContainer";
+import ShipmentIcon from "../../assets/shipment.svg";
+import KitRegistrationIcon from "../../assets/kit_registration.svg";
+import SampleCollectionIcon from "../../assets/sample_collection.svg";
+import TestKitReturnIcon from "../../assets/test_kit_return.svg";
+import LabProcessingIcon from "../../assets/lab_processing.svg";
+import CircleImageIcon from "../CircleImageIcon";
+
+const LOGISTIC_STEPS = [
+  {
+    title: "Shipment",
+    icon: <CircleImageIcon icon={ShipmentIcon} color="#fff" />,
+    data: "05/01/2024",
+  },
+  {
+    title: "Kit registration",
+    icon: <CircleImageIcon icon={KitRegistrationIcon} color="#fff" />,
+    data: "05/01/2024",
+  },
+  {
+    title: "Sample collection",
+    icon: <CircleImageIcon icon={SampleCollectionIcon} color="#fff" />,
+    data: "05/01/2024",
+  },
+  {
+    title: "Test kit return",
+    icon: <CircleImageIcon icon={TestKitReturnIcon} color="#fff" />,
+    data: "05/01/2024",
+  },
+  {
+    title: "Lab processing & report",
+    icon: <CircleImageIcon icon={LabProcessingIcon} color="#fff" />,
+    data: "05/01/2024",
+  },
+];
 
 export default function index() {
   return (
