@@ -3,6 +3,7 @@ import MobileNavigationDrawer from "./MobileNavigationDrawer";
 import ProfileCircleImage from "../assets/profile_circle.svg";
 import { Button, List, ListItemButton, ListItemText } from "@mui/material";
 import { useState } from "react";
+import NavbarItemsList from "./NavbarItemsList";
 
 const MAIN_NAVIGATION_ITEMS = ["Dashboard", "Report", "Tele-health", "To-dos"];
 
@@ -27,46 +28,16 @@ export default function AppBar() {
         <div className="flex justify-end w-8"></div>
 
         <div className="flex flex-row items-center hidden lg:flex">
-          <List
+          <NavbarItemsList
+            items={MAIN_NAVIGATION_ITEMS}
+            defaultItem="Dashboard"
             sx={{
               display: "flex",
               flexDirection: "row",
               flexWrap: "wrap",
               padding: 0,
             }}
-          >
-            {MAIN_NAVIGATION_ITEMS.map((text) => (
-              <ListItemButton
-                key={text}
-                selected={selectedItem === text}
-                onClick={() => handleListItemClick(text)}
-                sx={{
-                  borderBottom:
-                    selectedItem === text ? "2px solid #3D3D3D" : "none",
-                  bgcolor: selectedItem === text ? "#000" : "transparent",
-                  "&.Mui-selected": {
-                    bgcolor: "rgba(147, 133, 98, 0)",
-                    color: "primary.main",
-                  },
-                  "&:hover": {
-                    bgcolor: "rgba(147, 133, 98, 0.1)",
-                  },
-                  paddingTop: "24px",
-                  paddingBottom: "24px",
-                }}
-              >
-                <ListItemText
-                  primary={text}
-                  primaryTypographyProps={{
-                    sx: {
-                      fontWeight: selectedItem === text ? "bold" : "normal", // Conditional styling
-                      color: selectedItem === text ? "#3D3D3D" : "#666666", // Conditional styling
-                    },
-                  }}
-                />
-              </ListItemButton>
-            ))}
-          </List>
+          />
 
           <div className="flex flex-row space-x-2 px-8 w-80 items-start justify-start content-start">
             <Button

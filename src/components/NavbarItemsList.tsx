@@ -4,31 +4,35 @@ import { useState } from "react";
 type NavbarItemsListProps = {
   items: string[];
   defaultItem: string;
+  sx?: object;
 };
 
 export default function NavbarItemsList({
   items,
   defaultItem,
+  sx,
 }: NavbarItemsListProps) {
-  const [selectedItem, setSelectedItem] = useState(defaultItem); // New state for tracking selected item
-
+  const [selectedItem, setSelectedItem] = useState(defaultItem);
   const handleListItemClick = (item: string) => {
-    setSelectedItem(item); // Update the selected item state
+    setSelectedItem(item);
   };
 
   return (
-    <List>
+    <List sx={sx}>
       {items.map((text) => (
         <ListItemButton
           key={text}
-          selected={selectedItem === text} // Check if the item is selected
-          onClick={() => handleListItemClick(text)} // Update selected item on click
+          selected={selectedItem === text}
+          onClick={() => handleListItemClick(text)}
           sx={{
             borderBottom: selectedItem === text ? "2px solid #3D3D3D" : "none",
             bgcolor: selectedItem === text ? "#000" : "transparent",
             "&.Mui-selected": {
               bgcolor: "rgba(147, 133, 98, 0.2)",
               color: "primary.main",
+              "@media (min-width:1024px)": {
+                bgcolor: "transparent",
+              },
             },
             "&:hover": {
               bgcolor: "rgba(147, 133, 98, 0.1)",
@@ -45,8 +49,8 @@ export default function NavbarItemsList({
             primary={text}
             primaryTypographyProps={{
               sx: {
-                fontWeight: selectedItem === text ? "bold" : "normal", // Conditional styling
-                color: selectedItem === text ? "#3D3D3D" : "#666666", // Conditional styling
+                fontWeight: selectedItem === text ? "bold" : "normal",
+                color: selectedItem === text ? "#3D3D3D" : "#666666",
               },
             }}
           />
