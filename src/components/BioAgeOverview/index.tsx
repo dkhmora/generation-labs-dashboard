@@ -1,5 +1,7 @@
 import React from "react";
 import BioAgeVisual from "./BioAgeVisual";
+import { IconButton } from "@mui/material";
+import { ChevronRight } from "@mui/icons-material";
 
 export default function BioAgeOverview() {
   const chronoAge = 40;
@@ -8,7 +10,13 @@ export default function BioAgeOverview() {
   return (
     <section className="w-full">
       <div className="space-y-8">
-        <h2 className="text-2xl font-bold">BioAge Overview</h2>
+        <div className="flex flex-row justify-between">
+          <h2 className="text-2xl font-bold">BioAge Overview</h2>
+
+          <IconButton sx={{ bgcolor: "#F7F6F6" }}>
+            <ChevronRight />
+          </IconButton>
+        </div>
 
         <div className="pt-8 space-y-4 text-center">
           <BioAgeVisual chronoAge={40} bioAge={43} />
