@@ -1,4 +1,3 @@
-import React from "react";
 import LogisticStep, { LogisticStepProps } from "./LogisticStep";
 
 type LogisticStepListProps = {

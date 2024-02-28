@@ -1,4 +1,3 @@
-import React from "react";
 import BoxContainer from "../BoxContainer";
 import { Button } from "@mui/material";
 import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
@@ -6,11 +5,11 @@ import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material"
 export type LogisticStepProps = {
   title: string;
   icon: JSX.Element;
-  data: string;
+  data?: string;
 };
 
 export default function LogisticStep(LogisticStepProps: LogisticStepProps) {
-  const { title, icon, data } = LogisticStepProps;
+  const { title, icon } = LogisticStepProps;
 
   return (
     <Button

@@ -1,4 +1,3 @@
-import React from "react";
 import BoxContainer from "../BoxContainer";
 import ShipmentIcon from "../../assets/shipment.svg";
 import KitRegistrationIcon from "../../assets/kit_registration.svg";

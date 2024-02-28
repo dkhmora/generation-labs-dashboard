@@ -1,5 +1,3 @@
-import React from "react";
-
 type CircleImageIconProps = {
   icon: string;
   color?: string;

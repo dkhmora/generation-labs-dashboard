@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { useState } from "react";
 import ToDoBox from "./ToDoBox";
 import MedicationIcon from "../../assets/medication.svg";
 import FootprintIcon from "../../assets/footprint.svg";
@@ -41,7 +41,7 @@ export default function DailyToDos() {
     [] as string[]
   );
 
-  const onClickCheckbox = (title, text) => {
+  const onClickCheckbox = (title: string, text: string) => {
     const newTodos = todos.map((todo) => {
       if (todo.title === title) {
         // Check if the task exists in the current tasks list
@@ -67,7 +67,7 @@ export default function DailyToDos() {
         <h2 className="text-2xl font-bold">Daily to-dos</h2>
 
         <div className="space-y-4">
-          {todos.map((todo, index) => (
+          {todos.map((todo) => (
             <ToDoBox
               key={todo.title}
               {...todo}

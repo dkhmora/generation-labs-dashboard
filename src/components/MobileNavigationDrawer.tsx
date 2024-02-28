@@ -15,17 +15,20 @@ export default function MobileNavigationDrawer() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("Dashboard"); // New state for tracking selected item
 
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setIsOpen(open);
-  };
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      // Checking if it's a keyboard event and handling Tab or Shift keys
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setIsOpen(open);
+    };
 
-  const handleListItemClick = (item) => {
+  const handleListItemClick = (item: string) => {
     setSelectedItem(item); // Update the selected item state
   };
 
@@ -37,7 +40,7 @@ export default function MobileNavigationDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {mainNavigationItems.map((text, index) => (
+        {mainNavigationItems.map((text) => (
           <ListItemButton
             key={text}
             selected={selectedItem === text} // Check if the item is selected
@@ -74,7 +77,9 @@ export default function MobileNavigationDrawer() {
     <div>
       <React.Fragment>
         <IconButton
-          onClick={toggleDrawer(true)}
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+            toggleDrawer(true)(event)
+          }
           edge="start"
           className="text-white"
           aria-label="menu"

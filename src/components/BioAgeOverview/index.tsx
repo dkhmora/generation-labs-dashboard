@@ -1,4 +1,3 @@
-import React from "react";
 import BioAgeVisual from "./BioAgeVisual";
 import { IconButton } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";

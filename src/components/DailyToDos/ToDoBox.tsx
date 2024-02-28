@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ToDoHeader from "./ToDoHeader";
 import TasksList from "./TasksList";
 import BoxContainer from "../BoxContainer";

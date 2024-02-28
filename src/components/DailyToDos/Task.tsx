@@ -1,5 +1,4 @@
 import { Checkbox } from "@mui/material";
-import React from "react";
 
 type TaskProps = {
   text: string;

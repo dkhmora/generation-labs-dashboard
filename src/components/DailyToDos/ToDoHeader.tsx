@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { IconButton } from "@mui/material";
 import {
   KeyboardArrowDown as KeyboardArrowDownIcon,

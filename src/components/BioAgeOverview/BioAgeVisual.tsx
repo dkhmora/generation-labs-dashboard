@@ -1,5 +1,3 @@
-import React from "react";
-
 type BioAgeVisualProps = {
   chronoAge: number;
   bioAge: number;
