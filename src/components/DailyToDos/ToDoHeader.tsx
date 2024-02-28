@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react";
 import { IconButton } from "@mui/material";
-import { KeyboardArrowDown as KeyboardArrowDownIcon } from "@mui/icons-material";
+import {
+  KeyboardArrowDown as KeyboardArrowDownIcon,
+  KeyboardArrowRight as KeyboardArrowRightIcon,
+} from "@mui/icons-material";
 
 type ToDoHeaderProps = {
   taskDoneCount: number;
@@ -8,11 +11,18 @@ type ToDoHeaderProps = {
   title: string;
   icon: ReactNode;
   onDropdownToggle: () => void;
+  isDropdownOpen: boolean;
 };
 
 export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
-  const { taskDoneCount, numberOfTasks, title, icon, onDropdownToggle } =
-    ToDoHeaderProps;
+  const {
+    taskDoneCount,
+    numberOfTasks,
+    title,
+    icon,
+    onDropdownToggle,
+    isDropdownOpen,
+  } = ToDoHeaderProps;
 
   return (
     <div className="flex w-full justify-between items-center">
@@ -33,7 +43,11 @@ export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
           aria-label="expand"
           onClick={onDropdownToggle}
         >
-          <KeyboardArrowDownIcon />
+          {isDropdownOpen ? (
+            <KeyboardArrowDownIcon />
+          ) : (
+            <KeyboardArrowRightIcon />
+          )}
         </IconButton>
       </div>
     </div>

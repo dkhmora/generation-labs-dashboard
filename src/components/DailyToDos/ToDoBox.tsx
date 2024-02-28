@@ -52,6 +52,7 @@ export default function ToDoBox({
         taskDoneCount={tasksDone.length}
         numberOfTasks={tasksDone.length + tasks.length}
         onDropdownToggle={toggleDropdown}
+        isDropdownOpen={isDropdownOpen}
       />
 
       <div
