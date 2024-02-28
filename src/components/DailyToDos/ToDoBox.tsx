@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ToDoHeader from "./ToDoHeader";
 import TasksList from "./TasksList";
 import BoxContainer from "../BoxContainer";
@@ -19,9 +19,15 @@ export default function ToDoBox({
   onClickCheckbox,
 }: ToDoBoxProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const contentRef = useRef<HTMLDivElement>(null); // Use HTMLDivElement for the ref type
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsDropdownOpen(true);
+    }, 500);
+  });
 
   return (
     <BoxContainer>
