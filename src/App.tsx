@@ -9,7 +9,7 @@ function App() {
     <main>
       <AppBar />
 
-      <div className="px-4 py-6 space-y-7">
+      <div className="px-4 py-6 space-y-16">
         <DailyToDos />
 
         <BioAgeOverview />

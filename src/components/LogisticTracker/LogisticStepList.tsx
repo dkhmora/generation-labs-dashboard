@@ -11,7 +11,7 @@ export default function LogisticStepList(
   const { steps } = LogisticStepListProps;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col space-y-4">
       {steps.map((step, index) => (
         <LogisticStep key={index} {...step} />
       ))}
