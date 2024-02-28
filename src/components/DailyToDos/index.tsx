@@ -67,9 +67,9 @@ export default function DailyToDos() {
         <h2 className="text-2xl font-bold">Daily to-dos</h2>
 
         <div className="space-y-4">
-          {todos.map((todo) => (
+          {todos.map((todo, index) => (
             <ToDoBox
-              key={todo.title}
+              key={`${todo.title}-${index}`}
               {...todo}
               onClickCheckbox={onClickCheckbox}
             />

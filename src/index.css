@@ -21,7 +21,7 @@
 }
 
 .viewport.open {
-  max-height: 120px;
+  max-height: 500px;
   opacity: 1;
 }
 

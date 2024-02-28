@@ -14,7 +14,7 @@ export default function TasksList(TaskListProps: TaskListProps) {
     <div className="w-full space-y-2 mt-4">
       {tasks.map((task, index) => (
         <Task
-          key={`${title}-${index}`}
+          key={`${title}-${task}-${index}`}
           text={task}
           isDone={isDone}
           onClickCheckbox={() => onClickCheckbox(title, task)}
