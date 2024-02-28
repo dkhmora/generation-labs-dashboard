@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ToDoBox from "./ToDoBox";
 import MedicationIcon from "../../assets/medication.svg";
 import FootprintIcon from "../../assets/footprint.svg";
@@ -36,9 +36,10 @@ const MOCK_TODO_DATA = [
 export default function DailyToDos() {
   const [todos, setTodos] = useState(MOCK_TODO_DATA);
 
-  const allTasksDone = todos.reduce(
-    (acc, curr) => acc.concat(curr.tasksDone),
-    [] as string[]
+  const allTasksDone = useMemo(
+    () =>
+      todos.reduce((acc, curr) => acc.concat(curr.tasksDone), [] as string[]),
+    [todos]
   );
 
   const onClickCheckbox = (title: string, text: string) => {

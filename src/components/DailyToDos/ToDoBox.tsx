@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ToDoHeader from "./ToDoHeader";
 import TasksList from "./TasksList";
 import BoxContainer from "../BoxContainer";
@@ -11,7 +11,7 @@ type ToDoBoxProps = {
   onClickCheckbox: (title: string, text: string) => void;
 };
 
-export default function ToDoBox({
+function ToDoBox({
   title,
   icon,
   tasks,
@@ -56,3 +56,6 @@ export default function ToDoBox({
     </BoxContainer>
   );
 }
+
+const MemoizedToDoBox = React.memo(ToDoBox);
+export default MemoizedToDoBox;

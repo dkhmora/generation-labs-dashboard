@@ -1,10 +1,11 @@
+import React from "react";
 import Task from "./Task";
 
 type FinishedTodosProps = {
   tasks: string[];
 };
 
-export default function FinishedTodos(FinishedTodosProps: FinishedTodosProps) {
+function FinishedTodos(FinishedTodosProps: FinishedTodosProps) {
   const { tasks } = FinishedTodosProps;
 
   return (
@@ -19,3 +20,6 @@ export default function FinishedTodos(FinishedTodosProps: FinishedTodosProps) {
     </div>
   );
 }
+
+const MemoizedFinishedTodos = React.memo(FinishedTodos);
+export default MemoizedFinishedTodos;
