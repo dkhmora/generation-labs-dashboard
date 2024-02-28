@@ -7,7 +7,7 @@ export default function BioAgeVisual(BioAgeVisualProps: BioAgeVisualProps) {
   const { chronoAge, bioAge } = BioAgeVisualProps;
 
   return (
-    <div className="bg-[#D94100] rounded-[100px] h-14 grid grid-cols-12 justify-center content-center">
+    <div className="bg-[#D94100] rounded-[100px] h-14 w-full grid grid-cols-12 justify-center content-center">
       <div className="relative col-start-5 col-span-4">
         <div className="flex flex-row justify-center">
           <div className="flex flex-col absolute bottom-0 justify-center items-center text-center content-center">
