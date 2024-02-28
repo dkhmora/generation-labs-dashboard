@@ -17,7 +17,7 @@ export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <BoxContainer>
+    <BoxContainer className="space-y-4">
       <ToDoHeader
         title={title}
         icon={icon}
