@@ -8,6 +8,7 @@ type ToDoBoxProps = {
   icon: JSX.Element;
   tasks: string[];
   tasksDone: string[];
+  onClickCheckbox: (title: string, text: string) => void;
 };
 
 export default function ToDoBox({
@@ -15,6 +16,7 @@ export default function ToDoBox({
   icon,
   tasks,
   tasksDone,
+  onClickCheckbox,
 }: ToDoBoxProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [height, setHeight] = useState<string | null>(null); // Store height as a string to allow CSS values
@@ -63,7 +65,12 @@ export default function ToDoBox({
           transition: "height 0.25s ease",
         }}
       >
-        <TasksList tasks={tasks} isDone={false} />
+        <TasksList
+          tasks={tasks}
+          title={title}
+          isDone={false}
+          onClickCheckbox={onClickCheckbox}
+        />
       </div>
     </BoxContainer>
   );

@@ -36,7 +36,7 @@ const LOGISTIC_STEPS = [
   },
 ];
 
-export default function index() {
+export default function LogisticTracker() {
   return (
     <section className="w-full">
       <div className="space-y-4">

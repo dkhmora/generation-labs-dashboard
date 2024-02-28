@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import ToDoBox from "./ToDoBox";
 import MedicationIcon from "../../assets/medication.svg";
 import FootprintIcon from "../../assets/footprint.svg";
@@ -33,11 +33,33 @@ const MOCK_TODO_DATA = [
   },
 ];
 
-export default function index() {
-  const allTasksDone = MOCK_TODO_DATA.reduce(
+export default function DailyToDos() {
+  const [todos, setTodos] = useState(MOCK_TODO_DATA);
+
+  const allTasksDone = todos.reduce(
     (acc, curr) => acc.concat(curr.tasksDone),
     [] as string[]
   );
+
+  const onClickCheckbox = (title, text) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.title === title) {
+        // Check if the task exists in the current tasks list
+        const taskExists = todo.tasks.includes(text);
+        if (taskExists) {
+          // Create a new tasks list excluding the one that's being moved to tasksDone
+          const newTasks = todo.tasks.filter((task) => task !== text);
+          // Add the task to the tasksDone list
+          const newTasksDone = [...todo.tasksDone, text];
+
+          return { ...todo, tasks: newTasks, tasksDone: newTasksDone };
+        }
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
 
   return (
     <section className="w-full">
@@ -45,8 +67,8 @@ export default function index() {
         <h2 className="text-2xl font-bold">Daily to-dos</h2>
 
         <div className="space-y-4">
-          {MOCK_TODO_DATA.map((todo, index) => (
-            <ToDoBox key={index} {...todo} />
+          {todos.map((todo, index) => (
+            <ToDoBox key={index} {...todo} onClickCheckbox={onClickCheckbox} />
           ))}
 
           <FinishedTodos tasks={allTasksDone} />

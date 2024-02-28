@@ -1,7 +1,7 @@
 import React from "react";
 import BioAgeVisual from "./BioAgeVisual";
 
-export default function index() {
+export default function BioAgeOverview() {
   const chronoAge = 40;
   const bioAge = 43;
 
