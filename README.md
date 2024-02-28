@@ -4,6 +4,8 @@
 
 This repository contains my submission for the front end engineering take-home task assigned by Generation Labs. The goal of this task is to implement a front-end page based on a provided Figma design using either Vue.js or React framework.
 
+View the live implementation of the project at https://dkhmora.github.io/generation-labs-dashboard/.
+
 ## Task Requirements
 
 - **Framework:** Implement the front-end page using Vue.js or React.
@@ -16,7 +18,8 @@ This repository contains my submission for the front end engineering take-home t
 ### Technologies Used
 
 - **Framework:** React.js
-- **Styling** TailwindCSS - A utility-first CSS framework for rapidly building custom designs.
+- **Styling:** TailwindCSS - A utility-first CSS framework for rapidly building custom designs.
+- **UI Components:** Material UI - A comprehensive suite of React components that implements Google's Material Design.
 - **Build Tool:** Vite - A fast and modern build tool for JavaScript projects.
 
 ### How to Run This Project
