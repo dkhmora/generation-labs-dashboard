@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ToDoHeader from "./ToDoHeader";
 import TasksList from "./TasksList";
 import BoxContainer from "../BoxContainer";
@@ -12,6 +12,9 @@ type ToDoBoxProps = {
 
 export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
   const { title, icon, tasks, tasksDone } = ToDoBoxProps;
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
     <BoxContainer>
@@ -20,9 +23,10 @@ export default function ToDoBox(ToDoBoxProps: ToDoBoxProps) {
         icon={icon}
         taskDoneCount={tasksDone.length}
         numberOfTasks={tasks.length}
+        onDropdownToggle={toggleDropdown}
       />
 
-      <TasksList tasks={tasks} isDone={false} />
+      {isDropdownOpen && <TasksList tasks={tasks} isDone={false} />}
     </BoxContainer>
   );
 }

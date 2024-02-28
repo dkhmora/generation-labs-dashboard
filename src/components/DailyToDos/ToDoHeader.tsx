@@ -7,10 +7,12 @@ type ToDoHeaderProps = {
   numberOfTasks: number;
   title: string;
   icon: ReactNode;
+  onDropdownToggle: () => void;
 };
 
 export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
-  const { taskDoneCount, numberOfTasks, title, icon } = ToDoHeaderProps;
+  const { taskDoneCount, numberOfTasks, title, icon, onDropdownToggle } =
+    ToDoHeaderProps;
 
   return (
     <div className="flex w-full justify-between items-center pb-4">
@@ -25,7 +27,12 @@ export default function ToDoHeader(ToDoHeaderProps: ToDoHeaderProps) {
           {taskDoneCount}/{numberOfTasks} tasks
         </p>
 
-        <IconButton size="small" edge="end" aria-label="expand">
+        <IconButton
+          size="small"
+          edge="end"
+          aria-label="expand"
+          onClick={onDropdownToggle}
+        >
           <KeyboardArrowDownIcon />
         </IconButton>
       </div>
