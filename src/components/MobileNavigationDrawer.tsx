@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import {
+  Button,
   Drawer,
   IconButton,
   List,
-  ListItem,
+  ListItemButton,
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,16 +27,16 @@ export default function MobileNavigationDrawer() {
 
   const list = () => (
     <div
-      className="w-80 h-full"
+      className="w-80 mt-10"
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
       <List>
         {mainNavigationItems.map((text, index) => (
-          <ListItem button key={text}>
+          <ListItemButton key={text}>
             <ListItemText primary={text} />
-          </ListItem>
+          </ListItemButton>
         ))}
       </List>
     </div>
@@ -55,6 +56,30 @@ export default function MobileNavigationDrawer() {
         </IconButton>
         <Drawer anchor={"left"} open={isOpen} onClose={toggleDrawer(false)}>
           {list()}
+
+          <div className="flex flex-col space-y-2 p-4">
+            <Button
+              sx={{
+                borderRadius: "8px",
+                border: "1px solid #938562",
+                borderColor: "#938562",
+                color: "#6A5930",
+                textTransform: "none",
+              }}
+            >
+              <p className="text-[#6A5930]">Register Kit</p>
+            </Button>
+            <Button
+              sx={{
+                borderRadius: "8px",
+                backgroundColor: "#E3E0D6",
+                textTransform: "none",
+              }}
+              disabled
+            >
+              <p className="text-[#6A5930]">Buy Kit</p>
+            </Button>
+          </div>
         </Drawer>
       </React.Fragment>
     </div>
