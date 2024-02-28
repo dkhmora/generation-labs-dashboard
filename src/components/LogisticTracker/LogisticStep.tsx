@@ -16,7 +16,8 @@ export default function LogisticStep(LogisticStepProps: LogisticStepProps) {
     <Button className="w-full">
       <BoxContainer className="flex flex-row w-full justify-between content-center items-center">
         <div className="flex flex-row items-center space-x-7">
-          {icon}{" "}
+          <span>{icon}</span>
+
           <p className="normal-case text-black text-lg font-bold">{title}</p>
         </div>
 
