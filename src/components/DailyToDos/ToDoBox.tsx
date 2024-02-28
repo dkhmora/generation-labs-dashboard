@@ -27,7 +27,7 @@ function ToDoBox({
     setTimeout(() => {
       setIsDropdownOpen(true);
     }, 500);
-  });
+  }, []);
 
   return (
     <BoxContainer>
