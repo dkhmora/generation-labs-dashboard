@@ -6,31 +6,32 @@ import SampleCollectionIcon from "../../assets/sample_collection.svg";
 import TestKitReturnIcon from "../../assets/test_kit_return.svg";
 import LabProcessingIcon from "../../assets/lab_processing.svg";
 import CircleImageIcon from "../CircleImageIcon";
+import LogisticStepList from "./LogisticStepList";
 
 const LOGISTIC_STEPS = [
   {
     title: "Shipment",
-    icon: <CircleImageIcon icon={ShipmentIcon} color="#fff" />,
+    icon: <CircleImageIcon icon={ShipmentIcon} className="bg-white" />,
     data: "05/01/2024",
   },
   {
     title: "Kit registration",
-    icon: <CircleImageIcon icon={KitRegistrationIcon} color="#fff" />,
+    icon: <CircleImageIcon icon={KitRegistrationIcon} className="bg-white" />,
     data: "05/01/2024",
   },
   {
     title: "Sample collection",
-    icon: <CircleImageIcon icon={SampleCollectionIcon} color="#fff" />,
+    icon: <CircleImageIcon icon={SampleCollectionIcon} className="bg-white" />,
     data: "05/01/2024",
   },
   {
     title: "Test kit return",
-    icon: <CircleImageIcon icon={TestKitReturnIcon} color="#fff" />,
+    icon: <CircleImageIcon icon={TestKitReturnIcon} className="bg-white" />,
     data: "05/01/2024",
   },
   {
     title: "Lab processing & report",
-    icon: <CircleImageIcon icon={LabProcessingIcon} color="#fff" />,
+    icon: <CircleImageIcon icon={LabProcessingIcon} className="bg-white" />,
     data: "05/01/2024",
   },
 ];
@@ -50,6 +51,8 @@ export default function index() {
           </BoxContainer>
 
           <p className="font-light">Upcoming on 05/01/2024</p>
+
+          <LogisticStepList steps={LOGISTIC_STEPS} />
         </div>
       </div>
     </section>
