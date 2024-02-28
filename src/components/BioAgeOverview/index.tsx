@@ -17,14 +17,18 @@ export default function BioAgeOverview() {
           </IconButton>
         </div>
 
-        <div className="pt-8 space-y-4 text-center">
-          <BioAgeVisual chronoAge={40} bioAge={43} />
+        <div className="flex flex-col pt-8 space-y-4 text-center lg:flex-row lg:space-y-0 lg:space-x-2 lg:pt-12">
+          <div className="flex flex-1">
+            <BioAgeVisual chronoAge={40} bioAge={43} />
+          </div>
 
-          <p className="text-[#7D2703]">
-            Overall, you are{" "}
-            <span className="font-bold">{bioAge - chronoAge}</span> years older
-            than your chronological age
-          </p>
+          <div className="flex flex-1 justify-center items-center lg:justify-start">
+            <p className="text-[#7D2703] align-bottom">
+              Overall, you are{" "}
+              <span className="font-bold">{bioAge - chronoAge}</span> years
+              older than your chronological age
+            </p>
+          </div>
         </div>
       </div>
     </section>

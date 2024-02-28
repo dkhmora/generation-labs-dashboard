@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Drawer,
-  IconButton,
-  List,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Button, Drawer, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NavbarItemsList from "./NavbarItemsList";
 
 const mainNavigationItems = ["Dashboard", "Report", "Tele-health", "To-dos"];
 
 export default function MobileNavigationDrawer() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("Dashboard"); // New state for tracking selected item
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -27,51 +20,6 @@ export default function MobileNavigationDrawer() {
       }
       setIsOpen(open);
     };
-
-  const handleListItemClick = (item: string) => {
-    setSelectedItem(item); // Update the selected item state
-  };
-
-  const list = () => (
-    <div
-      className="w-80 mt-10"
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        {mainNavigationItems.map((text) => (
-          <ListItemButton
-            key={text}
-            selected={selectedItem === text} // Check if the item is selected
-            onClick={() => handleListItemClick(text)} // Update selected item on click
-            sx={{
-              borderBottom:
-                selectedItem === text ? "2px solid #3D3D3D" : "none",
-              bgcolor: selectedItem === text ? "#000" : "transparent",
-              "&.Mui-selected": {
-                bgcolor: "rgba(147, 133, 98, 0.2)",
-                color: "primary.main",
-              },
-              "&:hover": {
-                bgcolor: "rgba(147, 133, 98, 0.1)",
-              },
-            }}
-          >
-            <ListItemText
-              primary={text}
-              primaryTypographyProps={{
-                sx: {
-                  fontWeight: selectedItem === text ? "bold" : "normal", // Conditional styling
-                  color: selectedItem === text ? "#3D3D3D" : "#666666", // Conditional styling
-                },
-              }}
-            />
-          </ListItemButton>
-        ))}
-      </List>
-    </div>
-  );
 
   return (
     <div>
@@ -88,7 +36,17 @@ export default function MobileNavigationDrawer() {
           <MenuIcon fontSize="large" />
         </IconButton>
         <Drawer anchor={"left"} open={isOpen} onClose={toggleDrawer(false)}>
-          {list()}
+          <div
+            className="w-80 mt-10"
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+          >
+            <NavbarItemsList
+              items={mainNavigationItems}
+              defaultItem="Dashboard"
+            />
+          </div>
 
           <div className="flex flex-col space-y-2 p-4">
             <Button
