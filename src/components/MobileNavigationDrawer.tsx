@@ -13,6 +13,7 @@ const mainNavigationItems = ["Dashboard", "Report", "Tele-health", "To-dos"];
 
 export default function MobileNavigationDrawer() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("Dashboard"); // New state for tracking selected item
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -21,8 +22,11 @@ export default function MobileNavigationDrawer() {
     ) {
       return;
     }
-
     setIsOpen(open);
+  };
+
+  const handleListItemClick = (item) => {
+    setSelectedItem(item); // Update the selected item state
   };
 
   const list = () => (
@@ -34,8 +38,32 @@ export default function MobileNavigationDrawer() {
     >
       <List>
         {mainNavigationItems.map((text, index) => (
-          <ListItemButton key={text}>
-            <ListItemText primary={text} />
+          <ListItemButton
+            key={text}
+            selected={selectedItem === text} // Check if the item is selected
+            onClick={() => handleListItemClick(text)} // Update selected item on click
+            sx={{
+              borderBottom:
+                selectedItem === text ? "2px solid #3D3D3D" : "none",
+              bgcolor: selectedItem === text ? "#000" : "transparent",
+              "&.Mui-selected": {
+                bgcolor: "rgba(147, 133, 98, 0.2)",
+                color: "primary.main",
+              },
+              "&:hover": {
+                bgcolor: "rgba(147, 133, 98, 0.1)",
+              },
+            }}
+          >
+            <ListItemText
+              primary={text}
+              primaryTypographyProps={{
+                sx: {
+                  fontWeight: selectedItem === text ? "bold" : "normal", // Conditional styling
+                  color: selectedItem === text ? "#3D3D3D" : "#666666", // Conditional styling
+                },
+              }}
+            />
           </ListItemButton>
         ))}
       </List>
